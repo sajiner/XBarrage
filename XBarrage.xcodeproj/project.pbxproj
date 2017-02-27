@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE85902E1E64182F00121753 /* XBarrageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85902D1E64182F00121753 /* XBarrageView.m */; };
 		AEC7FF491E63F93200F1D09E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC7FF481E63F93200F1D09E /* main.m */; };
 		AEC7FF4C1E63F93200F1D09E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC7FF4B1E63F93200F1D09E /* AppDelegate.m */; };
 		AEC7FF4F1E63F93200F1D09E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC7FF4E1E63F93200F1D09E /* ViewController.m */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE85902C1E64182F00121753 /* XBarrageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBarrageView.h; sourceTree = "<group>"; };
+		AE85902D1E64182F00121753 /* XBarrageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBarrageView.m; sourceTree = "<group>"; };
+		AE85902F1E64244D00121753 /* XBarrageModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBarrageModelProtocol.h; sourceTree = "<group>"; };
 		AEC7FF441E63F93200F1D09E /* XBarrage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBarrage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC7FF481E63F93200F1D09E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AEC7FF4A1E63F93200F1D09E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE85902B1E64181700121753 /* Barrage */ = {
+			isa = PBXGroup;
+			children = (
+				AE85902C1E64182F00121753 /* XBarrageView.h */,
+				AE85902D1E64182F00121753 /* XBarrageView.m */,
+				AE85902F1E64244D00121753 /* XBarrageModelProtocol.h */,
+			);
+			path = Barrage;
+			sourceTree = "<group>";
+		};
 		AEC7FF3B1E63F93200F1D09E = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +72,7 @@
 		AEC7FF461E63F93200F1D09E /* XBarrage */ = {
 			isa = PBXGroup;
 			children = (
+				AE85902B1E64181700121753 /* Barrage */,
 				AEC7FF4A1E63F93200F1D09E /* AppDelegate.h */,
 				AEC7FF4B1E63F93200F1D09E /* AppDelegate.m */,
 				AEC7FF4D1E63F93200F1D09E /* ViewController.h */,
@@ -151,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE85902E1E64182F00121753 /* XBarrageView.m in Sources */,
 				AEC7FF4F1E63F93200F1D09E /* ViewController.m in Sources */,
 				AEC7FF4C1E63F93200F1D09E /* AppDelegate.m in Sources */,
 				AEC7FF491E63F93200F1D09E /* main.m in Sources */,
