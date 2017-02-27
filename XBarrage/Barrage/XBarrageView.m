@@ -19,6 +19,8 @@
 /// 弹道的存活时间组
 @property (nonatomic, strong) NSMutableArray *laneLeftTimes;
 
+@property (nonatomic, strong) NSMutableArray *barrageViews;
+
 @end
 
 @implementation XBarrageView
@@ -74,7 +76,32 @@
             continue;
         }
         // 判断会不会与前面一个视图产生碰撞
-#warning todo
+        UIView *barrageView = [self.delegate barrageViewWithModel:model];
+        NSTimeInterval leftTime = [self.laneLeftTimes[i] doubleValue];
+        double speed = (barrageView.frame.size.width + self.frame.size.width) / model.liveTime;
+        double distance = leftTime * speed;
+        if (distance > self.frame.size.width) {
+            continue;
+        }
+        [self.barrageViews addObject:barrageView];
+        // 重置数据
+        self.laneLeftTimes[i] = @(model.liveTime);
+        self.laneWaitTimes[i] = @(barrageView.frame.size.width / speed);
+        // 发射弹幕
+        CGRect frame = barrageView.frame;
+        frame.origin = CGPointMake(self.frame.size.width, laneH * i);
+        barrageView.frame = frame;
+        [self addSubview:barrageView];
+        
+        [UIView animateWithDuration:model.liveTime animations:^{
+            CGRect frame = barrageView.frame;
+            frame.origin.x = - barrageView.frame.size.width;
+            barrageView.frame = frame;
+        } completion:^(BOOL finished) {
+            [barrageView removeFromSuperview];
+            [self.barrageViews removeObject:barrageView];
+        }];
+        return YES;
     }
     return NO;
 }
@@ -119,6 +146,13 @@
         }
     }
     return _laneLeftTimes;
+}
+
+- (NSMutableArray *)barrageViews {
+    if (!_barrageViews) {
+        _barrageViews = [NSMutableArray array];
+    }
+    return _barrageViews;
 }
 
 @end
