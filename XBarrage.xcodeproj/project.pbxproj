@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE16CE951E6518B1006632EB /* XBarrageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE16CE941E6518B1006632EB /* XBarrageModel.m */; };
+		AE16CE981E655082006632EB /* CALayer+XAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = AE16CE971E655082006632EB /* CALayer+XAnimation.m */; };
 		AE85902E1E64182F00121753 /* XBarrageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85902D1E64182F00121753 /* XBarrageView.m */; };
 		AEC7FF491E63F93200F1D09E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC7FF481E63F93200F1D09E /* main.m */; };
 		AEC7FF4C1E63F93200F1D09E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC7FF4B1E63F93200F1D09E /* AppDelegate.m */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		AE16CE931E6518B1006632EB /* XBarrageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBarrageModel.h; sourceTree = "<group>"; };
 		AE16CE941E6518B1006632EB /* XBarrageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBarrageModel.m; sourceTree = "<group>"; };
+		AE16CE961E655082006632EB /* CALayer+XAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XAnimation.h"; sourceTree = "<group>"; };
+		AE16CE971E655082006632EB /* CALayer+XAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XAnimation.m"; sourceTree = "<group>"; };
 		AE85902C1E64182F00121753 /* XBarrageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBarrageView.h; sourceTree = "<group>"; };
 		AE85902D1E64182F00121753 /* XBarrageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBarrageView.m; sourceTree = "<group>"; };
 		AE85902F1E64244D00121753 /* XBarrageModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBarrageModelProtocol.h; sourceTree = "<group>"; };
@@ -52,6 +55,8 @@
 				AE85902C1E64182F00121753 /* XBarrageView.h */,
 				AE85902D1E64182F00121753 /* XBarrageView.m */,
 				AE85902F1E64244D00121753 /* XBarrageModelProtocol.h */,
+				AE16CE961E655082006632EB /* CALayer+XAnimation.h */,
+				AE16CE971E655082006632EB /* CALayer+XAnimation.m */,
 			);
 			path = Barrage;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				AEC7FF4F1E63F93200F1D09E /* ViewController.m in Sources */,
 				AEC7FF4C1E63F93200F1D09E /* AppDelegate.m in Sources */,
 				AEC7FF491E63F93200F1D09E /* main.m in Sources */,
+				AE16CE981E655082006632EB /* CALayer+XAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

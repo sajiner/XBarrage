@@ -24,4 +24,7 @@
 
 @property (nonatomic, weak) id<XBarrageViewProtocol> delegate;
 
+- (void)pause;
+- (void)resume;
+
 @end

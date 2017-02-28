@@ -43,6 +43,14 @@
     [self.barrageView.models addObject:model2];
 }
 
+- (IBAction)pause:(UIButton *)sender {
+    [self.barrageView pause];
+}
+
+- (IBAction)resume:(UIButton *)sender {
+    [self.barrageView resume];
+}
+
 #pragma mark - XBarrageViewProtocol
 - (UIView *)barrageViewWithModel:(XBarrageModel *)model {
     UILabel *label = [UILabel new];

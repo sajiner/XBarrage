@@ -7,11 +7,14 @@
 //
 
 #import "XBarrageView.h"
+#import "CALayer+XAnimation.h"
 
 #define kClockDec 0.1
 #define kLaneCount 6
 
-@interface XBarrageView ()
+@interface XBarrageView () {
+    BOOL _isPause;
+}
 
 @property (nonatomic, weak) NSTimer *clock;
 /// 弹道的等待时间组
@@ -19,9 +22,25 @@
 /// 弹道的存活时间组
 @property (nonatomic, strong) NSMutableArray *laneLeftTimes;
 
+@property (nonatomic, strong) NSMutableArray *barrageViews;
+
 @end
 
 @implementation XBarrageView
+
+#pragma mark - 暂停、继续动画
+- (void)pause {
+    _isPause = YES;
+    [[self.barrageViews valueForKeyPath:@"layer"] makeObjectsPerformSelector:@selector(pauseAnimate)];
+    [self.clock invalidate];
+    self.clock = nil;
+}
+
+- (void)resume {
+    _isPause = NO;
+    [[self.barrageViews valueForKeyPath:@"layer"] makeObjectsPerformSelector:@selector(resumeAnimate)];
+    [self clock];
+}
 
 #pragma mark - 检查碰撞
 - (void)checkAndCollided {
@@ -81,6 +100,7 @@
         if (distance > self.frame.size.width) {
             continue;
         }
+        [self.barrageViews addObject:barrageView];
         // 重置数据
         self.laneLeftTimes[i] = @(model.liveTime);
         self.laneWaitTimes[i] = @(barrageView.frame.size.width / speed);
@@ -89,14 +109,16 @@
         frame.origin = CGPointMake(self.frame.size.width, laneH * i);
         barrageView.frame = frame;
         [self addSubview:barrageView];
-        
-        [UIView animateWithDuration:model.liveTime animations:^{
+       
+        [UIView animateWithDuration:model.liveTime delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             CGRect frame = barrageView.frame;
             frame.origin.x = - barrageView.frame.size.width;
             barrageView.frame = frame;
         } completion:^(BOOL finished) {
             [barrageView removeFromSuperview];
+            [self.barrageViews removeObject:barrageView];
         }];
+        
         return YES;
     }
     return NO;
@@ -149,6 +171,13 @@
         _models = [NSMutableArray array];
     }
     return _models;
+}
+
+- (NSMutableArray *)barrageViews {
+    if (!_barrageViews) {
+        _barrageViews = [NSMutableArray array];
+    }
+    return _barrageViews;
 }
 
 @end
