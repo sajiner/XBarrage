@@ -37,6 +37,9 @@
 }
 
 - (void)resume {
+    if (!_isPause) {
+        return;
+    }
     _isPause = NO;
     [[self.barrageViews valueForKeyPath:@"layer"] makeObjectsPerformSelector:@selector(resumeAnimate)];
     [self clock];
@@ -129,6 +132,7 @@
     [super didMoveToSuperview];
     
     [self clock];
+    self.layer.masksToBounds = YES;
 }
 
 - (void)dealloc {
