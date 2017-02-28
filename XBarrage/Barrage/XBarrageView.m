@@ -127,7 +127,31 @@
     return NO;
 }
 
+#pragma mark - 点击弹幕事件
+- (void)click: (UITapGestureRecognizer *)tap {
+    CGPoint point = [tap locationInView:tap.view];
+    for (UIView *barrageView in self.barrageViews) {
+        CGRect rect = barrageView.layer.presentationLayer.frame;
+        BOOL isContain = CGRectContainsPoint(rect, point);
+        if (isContain) {
+            if ([self.delegate respondsToSelector:@selector(barrageViewDidClick:at:)]) {
+                [self.delegate barrageViewDidClick:self at:point];
+            }
+//            break;
+        }
+    }
+}
+
 #pragma mark - life cycle
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click:)];
+        [self addGestureRecognizer:tap];
+    }
+    return self;
+}
+
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
     

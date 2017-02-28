@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "XBarrageModelProtocol.h"
 
+@class XBarrageView;
 @protocol XBarrageViewProtocol <NSObject>
 /// 当前时间
 @property (nonatomic, assign, readonly) NSTimeInterval currentTime;
 
 - (UIView *)barrageViewWithModel: (id<XBarrageModelProtocol>)model;
+- (void)barrageViewDidClick: (XBarrageView *)barrageView at: (CGPoint)point;
 
 @end
 

@@ -59,6 +59,10 @@
     return label;
 }
 
+- (void)barrageViewDidClick:(XBarrageView *)barrageView at:(CGPoint)point {
+    NSLog(@"%@ %@", barrageView, NSStringFromCGPoint(point));
+}
+
 - (NSTimeInterval)currentTime {
     static double time = 0;
     time += 0.1;
