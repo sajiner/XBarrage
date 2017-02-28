@@ -11,7 +11,7 @@
 
 @protocol XBarrageViewProtocol <NSObject>
 /// 当前时间
-@property (nonatomic, assign) NSTimeInterval currentTime;
+@property (nonatomic, assign, readonly) NSTimeInterval currentTime;
 
 - (UIView *)barrageViewWithModel: (id<XBarrageModelProtocol>)model;
 

@@ -19,25 +19,22 @@
 /// 弹道的存活时间组
 @property (nonatomic, strong) NSMutableArray *laneLeftTimes;
 
-@property (nonatomic, strong) NSMutableArray *barrageViews;
-
 @end
 
 @implementation XBarrageView
 
 #pragma mark - 检查碰撞
 - (void)checkAndCollided {
-    
     // 实时更新弹道记录的时间信息
     for (int i = 0; i < kLaneCount; i++) {
         double waitValue = [self.laneWaitTimes[i] doubleValue] - kClockDec;
-        if (waitValue <= 0) {
+        if (waitValue <= 0.0) {
             waitValue = 0.0;
         }
         self.laneWaitTimes[i] = @(waitValue);
         
         double leftValue = [self.laneLeftTimes[i] doubleValue] - kClockDec;
-        if (leftValue <= 0) {
+        if (leftValue <= 0.0) {
             leftValue = 0.0;
         }
         self.laneLeftTimes[i] = @(leftValue);
@@ -72,18 +69,18 @@
     for (int i = 0; i < kLaneCount; i++) {
         // 获取该弹道的绝对等待时间
         NSTimeInterval waitTime = [self.laneWaitTimes[i] doubleValue];
-        if (waitTime > 0) {
+        if (waitTime > 0.0) {
             continue;
         }
         // 判断会不会与前面一个视图产生碰撞
         UIView *barrageView = [self.delegate barrageViewWithModel:model];
+        
         NSTimeInterval leftTime = [self.laneLeftTimes[i] doubleValue];
         double speed = (barrageView.frame.size.width + self.frame.size.width) / model.liveTime;
         double distance = leftTime * speed;
         if (distance > self.frame.size.width) {
             continue;
         }
-        [self.barrageViews addObject:barrageView];
         // 重置数据
         self.laneLeftTimes[i] = @(model.liveTime);
         self.laneWaitTimes[i] = @(barrageView.frame.size.width / speed);
@@ -99,7 +96,6 @@
             barrageView.frame = frame;
         } completion:^(BOOL finished) {
             [barrageView removeFromSuperview];
-            [self.barrageViews removeObject:barrageView];
         }];
         return YES;
     }
@@ -148,11 +144,11 @@
     return _laneLeftTimes;
 }
 
-- (NSMutableArray *)barrageViews {
-    if (!_barrageViews) {
-        _barrageViews = [NSMutableArray array];
+- (NSMutableArray<id<XBarrageModelProtocol>> *)models {
+    if (!_models) {
+        _models = [NSMutableArray array];
     }
-    return _barrageViews;
+    return _models;
 }
 
 @end

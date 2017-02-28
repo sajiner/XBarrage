@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE16CE951E6518B1006632EB /* XBarrageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE16CE941E6518B1006632EB /* XBarrageModel.m */; };
 		AE85902E1E64182F00121753 /* XBarrageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85902D1E64182F00121753 /* XBarrageView.m */; };
 		AEC7FF491E63F93200F1D09E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC7FF481E63F93200F1D09E /* main.m */; };
 		AEC7FF4C1E63F93200F1D09E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC7FF4B1E63F93200F1D09E /* AppDelegate.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE16CE931E6518B1006632EB /* XBarrageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBarrageModel.h; sourceTree = "<group>"; };
+		AE16CE941E6518B1006632EB /* XBarrageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBarrageModel.m; sourceTree = "<group>"; };
 		AE85902C1E64182F00121753 /* XBarrageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBarrageView.h; sourceTree = "<group>"; };
 		AE85902D1E64182F00121753 /* XBarrageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBarrageView.m; sourceTree = "<group>"; };
 		AE85902F1E64244D00121753 /* XBarrageModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBarrageModelProtocol.h; sourceTree = "<group>"; };
@@ -77,6 +80,8 @@
 				AEC7FF4B1E63F93200F1D09E /* AppDelegate.m */,
 				AEC7FF4D1E63F93200F1D09E /* ViewController.h */,
 				AEC7FF4E1E63F93200F1D09E /* ViewController.m */,
+				AE16CE931E6518B1006632EB /* XBarrageModel.h */,
+				AE16CE941E6518B1006632EB /* XBarrageModel.m */,
 				AEC7FF501E63F93200F1D09E /* Main.storyboard */,
 				AEC7FF531E63F93200F1D09E /* Assets.xcassets */,
 				AEC7FF551E63F93200F1D09E /* LaunchScreen.storyboard */,
@@ -166,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE16CE951E6518B1006632EB /* XBarrageModel.m in Sources */,
 				AE85902E1E64182F00121753 /* XBarrageView.m in Sources */,
 				AEC7FF4F1E63F93200F1D09E /* ViewController.m in Sources */,
 				AEC7FF4C1E63F93200F1D09E /* AppDelegate.m in Sources */,
